@@ -41,6 +41,14 @@
             text-align: center;
             display: inline-block;
         }
+        main{
+            display: flex;
+        }
+        @media (max-width: 600px) {
+            main{
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
@@ -52,11 +60,28 @@
         <li><a href="#">Contacts</a></li>
     </ul>
     <main>
-        <img src="1.jpg">
-        <img src="2.jpg">
-        <img src="3.jpg">
-        <img src="1.jpg">
-        <img src="2.jpg">
+        <figure>
+            <img src="1.jpg">
+            <figcaption>$19.99</figcaption>
+        </figure>
+        <figure>
+            <img src="2.jpg">
+            <figcaption>$19.99</figcaption>
+        </figure>
+        <figure>
+            <img src="3.jpg">
+            <figcaption>$19.99</figcaption>
+        </figure>
+        <figure>
+            <img src="1.jpg">
+            <figcaption>$19.99</figcaption>
+        </figure>
+        <figure>
+            <img src="2.jpg">
+            <figcaption>$19.99</figcaption>
+        </figure>
+        
+        
     </main>
 
     <footer>
