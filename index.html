@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <style>
+        ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                flex-direction: column;
+            }
+
+            li>a {
+                display: inline-block;
+                text-align: center;
+            }
+        }
+
+        li>a {
+            text-decoration: none;
+            background-color: red;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 10px;
+        }
+
+        footer>p {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About </a></li>
+        <li><a href="#">Contacts</a></li>
+    </ul>
+    <main>
+        <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU">
+        <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU">
+        <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU">
+        <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU">
+        <img src="https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU">
+    </main>
+
+    <footer>
+        <p>copyright borey
+    </footer>
+
+
+    <script>
+        function forceImageSize(width = 500, height = 500, fit = 'cover') {
+            const resize = (img) => {
+                img.style.width = width + 'px';
+                img.style.height = height + 'px';
+                img.style.objectFit = fit;
+            };
+
+            // resize images already on the page
+            document.querySelectorAll('img').forEach(resize);
+
+            // resize images added later
+            new MutationObserver((mutations) => {
+                for (const mutation of mutations) {
+                    for (const node of mutation.addedNodes) {
+                        if (node.nodeType !== 1) continue;
+                        if (node.tagName === 'IMG') resize(node);
+                        node.querySelectorAll?.('img').forEach(resize);
+                    }
+                }
+            }).observe(document.body, { childList: true, subtree: true });
+        }
+
+        // call it
+        forceImageSize(200, 200, 'cover');
+    </script>
+</body>
+
+</html>
